@@ -1,0 +1,15 @@
+@startuml
+
+Customer -> ChargingStation: Hire Scooter
+ChargingStation -> ScooterHireSystem: Check for available Scooter
+ScooterHireSystem -> Scooter: Scan for available Scooter
+Scooter --> ScooterHireSystem: Responds with ID
+ScooterHireSystem --> ChargingStation: ID of available Scooter
+ChargingStation --> Customer: Release Scooter
+Customer -> Scooter: Uses
+Customer -> ChargingStation: Docks Scooter when finished
+ChargingStation -> Scooter: Locks Scooter and begins charging
+ChargingStation -> ScooterHireSystem: Passes ID back to list of available Scooters
+
+
+@enduml

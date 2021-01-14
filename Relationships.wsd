@@ -1,0 +1,54 @@
+------------------------
+/Users/ilja.petrovs/Downloads/puml.png
+
+@startuml
+title Relationships - Class Diagram
+
+
+class Customer {
+    int money
+    hireScooter()
+    dockScooter()
+    useScooter()
+}
+class ChargingStation {
+    int costToHire
+    chargeScooter()
+    releaseScooter()
+    lockScooter()
+}
+class Battery {
+    bool isDepleted
+    int chargePower
+    int speedOfDepletion
+    depleteCharge()
+}
+class Scooter {
+    int speed
+    goForward()
+    stop()
+}
+class ScooterHireSystem {
+    Array<Scooter> availableScooters    
+    checkForScooter()
+    
+}
+
+Scooter "1" -- "1" Battery
+Customer "1" -- "1" Scooter
+Customer "1" -- "1" ChargingStation
+ChargingStation  "1" -- "many" Scooter
+ScooterHireSystem  "1" -- "1" ChargingStation
+ScooterHireSystem "1" -- "many" Scooter
+
+@enduml
+
+PlantUML version 1.2020.27beta8(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+
+------------------------
