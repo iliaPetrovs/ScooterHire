@@ -3,6 +3,7 @@
  */
 class Customer {
     money;
+    scooterInPossesion;
 
     /**
      * How much money the customer has in order to hire a scooter
@@ -12,9 +13,10 @@ class Customer {
     }
 
     /**
-     * Give money to chargingStation to hire scooter
+     * Pick scooter with specified speed. Give money to chargingStation to hire scooter
      */
-    hireScooter() {
+    hireScooter(chargingStation) {
+        
     }
 
     /**

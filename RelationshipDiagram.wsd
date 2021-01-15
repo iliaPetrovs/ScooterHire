@@ -4,7 +4,7 @@
 @startuml
 title Relationships - Class Diagram
 
-
+left to right direction
 class Customer {
     int money
     hireScooter()
@@ -25,21 +25,25 @@ class Battery {
 }
 class Scooter {
     int speed
+    String name
+    String model
+    Battery battery
     goForward()
     stop()
 }
 class ScooterHireSystem {
     Array<Scooter> availableScooters    
     checkForScooter()
-    
+    getAllScooters()
+
 }
 
-Scooter "1" -- "1" Battery
-Customer "1" -- "1" Scooter
-Customer "1" -- "1" ChargingStation
-ChargingStation  "1" -- "many" Scooter
-ScooterHireSystem  "1" -- "1" ChargingStation
-ScooterHireSystem "1" -- "many" Scooter
+Scooter ||--|| Battery: Runs on
+Customer ||--|| Scooter: Hires and rides
+Customer ||--|| ChargingStation: Returns scooter to
+ChargingStation  ||--|{ Scooter: Charges
+ScooterHireSystem  ||--|| ChargingStation: Manages
+ScooterHireSystem ||--|{ Scooter: Manages
 
 @enduml
 

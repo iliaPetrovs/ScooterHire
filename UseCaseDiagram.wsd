@@ -1,0 +1,18 @@
+@startuml Scooter
+left to right direction
+actor "Customer" as fc
+actor "Charging Station" as cs
+rectangle ScooterHireSystem {
+    usecase "Hire Scooter" as UC1
+    usecase "Use Scooter" as UC2
+    usecase "Charge Scooter" as UC3
+    usecase "Return Scooter" as UC4
+}
+
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+UC4 --> cs
+
+@enduml

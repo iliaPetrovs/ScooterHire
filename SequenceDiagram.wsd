@@ -1,7 +1,6 @@
-@startuml
-
+@startuml Scooter
 Customer -> ChargingStation: Hire Scooter
-ChargingStation -> ScooterHireSystem: Check for available Scooter
+ChargingStation -> ScooterHireSystem: Send Scooter request
 ScooterHireSystem -> Scooter: Scan for available Scooter
 Scooter --> ScooterHireSystem: Responds with ID
 ScooterHireSystem --> ChargingStation: ID of available Scooter
