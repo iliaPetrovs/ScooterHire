@@ -10,7 +10,6 @@ class ScooterHireSystem {
 	 * Generates a hiring system with a list of available scooters
 	 */
 	constructor() {
-		this.getAllScooters();
 	}
 
 	/**

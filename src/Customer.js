@@ -17,9 +17,9 @@ class Customer {
 	/**
 	 * Pick scooter with specified speed. Give money to chargingStation to hire scooter
 	 */
-	hireScooter(speed) {
+	async hireScooter(speed) {
 		const hiredScooter = new Scooter(speed);
-		hiredScooter.generateScooter();
+		await hiredScooter.generateScooter();
 		console.log(hiredScooter);
 		if (hiredScooter.cost > this.money) {
 			return "You don't have enough money";
