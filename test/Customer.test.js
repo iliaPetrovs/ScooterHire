@@ -11,14 +11,14 @@ describe("Customer", () => {
 			customer.useScooter();
 		}).toThrow("Can't use scooter as you don't have one!");
 	});
-	test("makes the scooter go forward until battery is depleted", () => {
-		customer.hireScooter(5);
-		// expect(customer.scooterInPossesion).toBeDefined();
-		// expect(customer.useScooter()).toEqual(
-		// 	"Return Scooter back to charging station"
-		// );
-		expect(customer.scooterInPossesion).toBeDefined();
-	});
+	// test("makes the scooter go forward until battery is depleted", () => {
+	// 	customer.hireScooter(5);
+	// 	// expect(customer.scooterInPossesion).toBeDefined();
+	// 	// expect(customer.useScooter()).toEqual(
+	// 	// 	"Return Scooter back to charging station"
+	// 	// );
+	// 	expect(customer.scooterInPossesion).toBeDefined();
+	// });
 	// test("can hire a scooter", () => {
 	// 	expect(customer.hireScooter(5)).toBeDefined();
 	// });
