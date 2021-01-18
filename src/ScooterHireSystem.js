@@ -4,7 +4,7 @@ const fs = require("fs");
  * The hiring system responsible for managing the available scooters
  */
 class ScooterHireSystem {
-	static availableScooters;
+	availableScooters;
 
 	/**
 	 * Generates a hiring system with a list of available scooters
@@ -15,6 +15,7 @@ class ScooterHireSystem {
 
 	/**
 	 * Checks list of available scooters and returns an ID
+	 * @param {int} speed speed of scooter, 1-10
 	 */
 	checkForScooter(speed = 0) {
 		this.availableScooters.filter((scooter) => {
@@ -30,6 +31,9 @@ class ScooterHireSystem {
 	//     })
 	// }
 
+	/**
+	 * Fetches all scooters from JSON data and adds them to available scooters
+	 */
 	getAllScooters() {
 		return new Promise((resolve, reject) => {
 			fs.readFile(__dirname + "/../resources/MOCK_DATA.json", (err, data) => {

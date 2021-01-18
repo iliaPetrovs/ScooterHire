@@ -10,6 +10,7 @@ class Scooter {
 	battery;
 	batteryDepleted;
 	shs;
+	isReleased;
 
 	/**
 	 * Different scooter models have different speeds
@@ -17,9 +18,10 @@ class Scooter {
 	 */
 	constructor(speed) {
 		this.speed = speed;
-		this.battery = new Battery();
+		this.battery = new Battery(speed);
 		this.batteryDepleted = false;
 		this.shs = new ScooterHireSystem();
+		this.isReleased = false;
 	}
 
 	/**
@@ -29,12 +31,12 @@ class Scooter {
 		if (this.battery.chargePower < 1) {
 			this.batteryDepleted = true;
 			this.stop();
+			throw new Error("No charge");
 		} else {
 			this.battery.depleteCharge();
 			console.log("That's a fast scooter!");
+			return "Go forward";
 		}
-		// console.log(this.battery.isDepleted);
-		// console.log(this.battery.chargePower);
 	}
 
 	/**
@@ -44,12 +46,16 @@ class Scooter {
 		console.log("battery depleted");
 	}
 
-	async generateScooter() {
+	/**
+	 * Selects the first available scooter with the specified speed requirements to be passed to customer
+	 */
+	generateScooter() {
 		const scooter = this.shs.availableScooters.find(
 			(item) => item.speed > this.speed && item.available
 		);
-		this.name = scooter.name;
+		this.name = scooter.scooter_name;
 		this.model = scooter.model;
+		return "Scooters generated";
 	}
 }
 
